@@ -1,6 +1,6 @@
 ---
 name: trimare-contratos
-description: Genera documentos inmobiliarios para Uruguay con el formato de Trimare — contrato de arrendamiento de vivienda, boleto de reserva y compromiso de compraventa. Úsala siempre que el usuario quiera redactar, armar, preparar o completar un contrato de alquiler/arrendamiento/locación, una reserva o seña de una propiedad, o un compromiso/boleto de compraventa, aunque solo mencione "el alquiler de tal propiedad", "el contrato del inquilino", "reservar el apto", "la seña del comprador" o pase los datos de las partes. Cubre el mercado uruguayo (cédula de identidad, padrón, reajuste por IPC/UR/UI, garantías locales, seña, escrituración).
+description: Genera documentos inmobiliarios para Uruguay con el formato de Trimare — contrato de arrendamiento de vivienda, boleto de reserva, compromiso de compraventa e inventario de estado del inmueble. Úsala siempre que el usuario quiera redactar, armar, preparar o completar un contrato de alquiler/arrendamiento/locación, una reserva o seña de una propiedad, un compromiso/boleto de compraventa, o el inventario/estado de un inmueble alquilado, aunque solo mencione "el alquiler de tal propiedad", "el contrato del inquilino", "reservar el apto", "la seña del comprador", "el inventario del apartamento" o pase los datos de las partes. Cubre el mercado uruguayo (cédula de identidad, padrón, reajuste por IPC/UR/UI, garantías locales, seña, escrituración).
 ---
 
 # Trimare — Documentos inmobiliarios (Uruguay)
@@ -11,6 +11,7 @@ Trimare. Cubre tres documentos:
 1. **Contrato de arrendamiento** de vivienda (casa-habitación).
 2. **Boleto de reserva** (seña previa a la compra).
 3. **Compromiso de compraventa** (contrato formal de venta).
+4. **Inventario y estado del inmueble** (anexo al contrato de arrendamiento).
 
 El objetivo es que cada documento salga completo, ordenado y con el lenguaje habitual del mercado
 uruguayo, sin que se olviden cláusulas clave.
@@ -28,6 +29,7 @@ Según lo que pida el usuario, elegí el modelo y la guía correspondientes:
 | Contrato de alquiler / arrendamiento / locación | `contrato-arrendamiento.md` | `arrendamiento-uy.md` |
 | Reservar una propiedad / dejar seña / oferta | `boleto-reserva.md` | `compraventa-uy.md` |
 | Compromiso o boleto de compraventa / venta | `compromiso-compraventa.md` | `compraventa-uy.md` |
+| Inventario / estado del inmueble alquilado | `inventario.md` | `arrendamiento-uy.md` |
 
 Si no queda claro cuál necesita, preguntá antes de seguir.
 

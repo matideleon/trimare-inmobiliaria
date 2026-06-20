@@ -73,3 +73,30 @@ Usar `clausulas_adicionales` para pactos especiales que pida el usuario, numerá
 - Inventario de mobiliario (si se alquila amueblado).
 
 Si no hay cláusulas adicionales, dejar el campo vacío.
+
+## Inventario (modelo `assets/inventario.md`)
+
+El inventario es el anexo que documenta el **estado y contenido del inmueble** al inicio del arrendamiento.
+Es la prueba para reclamar (o devolver) el depósito al final. Pautas para completarlo:
+
+- **`detalle_ambientes`:** recorrer el inmueble ambiente por ambiente. Para cada uno, listar el estado de
+  pisos, paredes, aberturas, instalaciones y los artefactos/muebles que se entregan, con su estado.
+  Formato sugerido, una sección por ambiente:
+
+  ```
+  COCINA: pisos y paredes en buen estado. Incluye cocina a gas Marca X (funciona), campana, mesada de
+  granito sin roturas, bajo mesada con dos puertas. Canilla sin pérdidas.
+
+  DORMITORIO 1: piso de parquet en buen estado, paredes pintadas recientemente, placard de tres puertas
+  completo, ventana con mosquitero.
+  ```
+
+- Si el apartamento se entrega **sin muebles**, igual describir el estado de cada ambiente (pisos, paredes,
+  aberturas, artefactos fijos como calefón, estufas, aire acondicionado).
+- **`estado_general`:** una línea resumen (p. ej. "El inmueble se entrega en buen estado general de
+  conservación, pintura y limpieza").
+- **`llaves`:** cantidad y tipo (p. ej. "2 juegos de llaves de puerta principal y 1 de portón de garaje").
+- **Medidores:** anotar la lectura de UTE, OSE y gas al momento de la entrega; si alguno no aplica, poner
+  "no corresponde".
+- **`observaciones`:** detalles preexistentes a dejar asentados (una mancha, una persiana trabada, etc.).
+  Es lo que evita discusiones al devolver el inmueble. Si no hay, poner "Sin observaciones".
