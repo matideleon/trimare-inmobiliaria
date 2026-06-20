@@ -1,65 +1,85 @@
 ---
 name: trimare-contratos
-description: Genera contratos de arrendamiento de vivienda para Uruguay con el formato de Trimare. Úsala siempre que el usuario quiera redactar, armar, preparar o completar un contrato de alquiler, contrato de arrendamiento, contrato de locación de vivienda o casa-habitación, aunque solo mencione "el alquiler de tal propiedad", "el contrato del inquilino" o pase los datos de un arrendador e inquilino. Cubre el mercado uruguayo (cédula de identidad, padrón, reajuste por IPC/UR/UI, garantías locales).
+description: Genera documentos inmobiliarios para Uruguay con el formato de Trimare — contrato de arrendamiento de vivienda, boleto de reserva y compromiso de compraventa. Úsala siempre que el usuario quiera redactar, armar, preparar o completar un contrato de alquiler/arrendamiento/locación, una reserva o seña de una propiedad, o un compromiso/boleto de compraventa, aunque solo mencione "el alquiler de tal propiedad", "el contrato del inquilino", "reservar el apto", "la seña del comprador" o pase los datos de las partes. Cubre el mercado uruguayo (cédula de identidad, padrón, reajuste por IPC/UR/UI, garantías locales, seña, escrituración).
 ---
 
-# Trimare — Contratos de arrendamiento (Uruguay)
+# Trimare — Documentos inmobiliarios (Uruguay)
 
-Esta skill arma contratos de **arrendamiento de vivienda (casa-habitación) para Uruguay** a partir
-de un modelo estándar, con el sello de Trimare. El objetivo es que cualquier contrato salga completo,
-ordenado y con el lenguaje habitual del mercado uruguayo, evitando que se olviden cláusulas clave.
+Esta skill arma documentos inmobiliarios para **Uruguay** a partir de modelos estándar, con el sello de
+Trimare. Cubre tres documentos:
 
-**Importante — siempre decírselo al usuario:** el documento generado es un **borrador basado en un modelo
-estándar**. No es asesoramiento legal y debe ser revisado por un escribano o abogado antes de firmarse.
-Incluí esta advertencia al entregar cada contrato.
+1. **Contrato de arrendamiento** de vivienda (casa-habitación).
+2. **Boleto de reserva** (seña previa a la compra).
+3. **Compromiso de compraventa** (contrato formal de venta).
 
-## Cómo trabajar
+El objetivo es que cada documento salga completo, ordenado y con el lenguaje habitual del mercado
+uruguayo, sin que se olviden cláusulas clave.
 
-El flujo es: reunir datos → elegir opciones de cláusulas → completar el modelo → entregar el contrato.
+**Importante — siempre decírselo al usuario:** lo generado es un **borrador basado en un modelo estándar**.
+No es asesoramiento legal y debe ser revisado por un escribano o abogado antes de firmarse. Incluí esta
+advertencia al entregar cada documento.
+
+## Paso 0 — Identificar qué documento es
+
+Según lo que pida el usuario, elegí el modelo y la guía correspondientes:
+
+| Si el usuario quiere… | Modelo (`assets/`) | Guía (`references/`) |
+|---|---|---|
+| Contrato de alquiler / arrendamiento / locación | `contrato-arrendamiento.md` | `arrendamiento-uy.md` |
+| Reservar una propiedad / dejar seña / oferta | `boleto-reserva.md` | `compraventa-uy.md` |
+| Compromiso o boleto de compraventa / venta | `compromiso-compraventa.md` | `compraventa-uy.md` |
+
+Si no queda claro cuál necesita, preguntá antes de seguir.
+
+## Cómo trabajar (igual para los tres)
+
+El flujo es: reunir datos → elegir opciones de cláusulas → completar el modelo → entregar.
 
 ### 1. Reunir los datos
 
-Necesitás estos datos para completar el contrato. Si el usuario ya dio algunos (en el mensaje o en
-archivos de la propiedad), tomalos de ahí; pedí solo lo que falte, en una sola tanda y de forma clara:
+Tomá los datos que el usuario ya haya dado (en el mensaje o en archivos de la propiedad) y pedí solo lo
+que falte, en una sola tanda y de forma clara. Los datos comunes son:
 
-- **Arrendador (propietario):** nombre completo, cédula de identidad, domicilio, nacionalidad.
-- **Arrendatario (inquilino):** nombre completo, cédula de identidad, domicilio, nacionalidad.
+- **Las partes:** nombre completo, cédula de identidad, domicilio y nacionalidad de cada una
+  (arrendador/arrendatario, reservante, o vendedor/comprador según el documento).
 - **Inmueble:** dirección, número de padrón, localidad y departamento; si es apartamento, número de unidad.
-- **Plazo:** duración (p. ej. 1 o 2 años) y fecha de inicio.
-- **Precio:** monto mensual y moneda ($, USD o UI); forma de pago.
-- **Garantía:** qué tipo usa (ver opciones abajo); si hay fiador, sus datos.
-- **Depósito:** si lo hay y por cuánto.
+- **Montos:** según el documento — precio mensual y garantía (arrendamiento); seña y precio ofrecido
+  (reserva); precio, seña, saldo y plazo de escrituración (compraventa).
 
-No frenes el trabajo por detalles menores: si algo no es crítico, usá un valor por defecto razonable
-y avisale al usuario qué asumiste, para que lo confirme. Por ejemplo, si no dice plazo, proponé 2 años.
+No frenes el trabajo por detalles menores: si algo no es crítico, usá un valor por defecto razonable y
+avisá qué asumiste para que el usuario lo confirme (p. ej. plazo de arrendamiento de 2 años, o plazo de
+reserva de 7 días).
 
 ### 2. Elegir las opciones de cada cláusula
 
-Las decisiones que cambian según el caso (tipo de garantía, índice de reajuste, quién paga los tributos,
-cómo calcular la fecha de fin, casa vs. apartamento, cláusulas especiales) están explicadas en
-**`references/arrendamiento-uy.md`**. Leé ese archivo cuando tengas que decidir cualquiera de estos
-puntos: te da las alternativas reales del mercado uruguayo y cómo redactarlas. No improvises cláusulas
-legales sin consultarlo.
+Las decisiones que cambian según el caso están explicadas en las guías de `references/`:
+
+- **`references/arrendamiento-uy.md`** — plazos, precio, reajuste (IPC/UR/UI), garantías, depósito,
+  tributos y gastos comunes para el contrato de alquiler.
+- **`references/compraventa-uy.md`** — seña, plazo de escrituración, escribano, gastos, estado de
+  ocupación y reglas de incumplimiento para reserva y compraventa.
+
+Leé la guía correspondiente cuando tengas que decidir cualquiera de estos puntos. No improvises cláusulas
+legales sin consultarla.
 
 ### 3. Completar el modelo
 
-Tomá la plantilla de **`assets/contrato-arrendamiento.md`** y reemplazá cada campo `{{...}}` con los
-datos reunidos. Pautas al completar:
+Tomá la plantilla del documento elegido y reemplazá cada campo `{{...}}` con los datos reunidos. Pautas:
 
 - Escribí los montos en letras y cifras: "treinta y cinco mil pesos uruguayos ($ 35.000)".
-- Calculá `fecha_fin` a partir de la fecha de inicio más el plazo.
+- En el arrendamiento, calculá `fecha_fin` a partir de la fecha de inicio más el plazo.
+- En la compraventa, verificá que **seña + saldo = precio total**.
 - Si un campo opcional no aplica (p. ej. `inmueble_unidad` en una casa, o `clausulas_adicionales`),
   dejalo vacío y asegurate de que la redacción quede natural, sin huecos ni `{{...}}` sueltos.
 - Revisá que no quede ningún `{{placeholder}}` sin reemplazar antes de entregar.
 
 ### 4. Entregar
 
-Mostrá el contrato completo y limpio. Después de revisarlo internamente, ofrecé guardarlo como archivo
-(p. ej. `.md` o `.docx`) si el usuario lo necesita para imprimir o firmar. Cerrá siempre con la
-advertencia de que conviene la revisión de un escribano/abogado.
+Mostrá el documento completo y limpio. Ofrecé guardarlo como archivo (`.md` o `.docx`) si el usuario lo
+necesita para imprimir o firmar. Cerrá siempre con la advertencia de que conviene la revisión de un
+escribano/abogado.
 
-## Sobre el alcance
+## Ampliar la skill
 
-Por ahora esta skill cubre el **contrato de arrendamiento de vivienda**. Si el usuario pide otro
-documento (boleto de reserva, compromiso de compraventa, recibos), decíle que esta skill aún no lo cubre
-y ofrecé ampliarla más adelante con esos modelos.
+Si el usuario pide otro documento que aún no está cubierto (recibos, autorización de venta, etc.), decíselo
+y ofrecé agregar ese modelo a la skill más adelante.
