@@ -12,6 +12,7 @@ Trimare. Cubre tres documentos:
 2. **Boleto de reserva** (seña previa a la compra).
 3. **Compromiso de compraventa** (contrato formal de venta).
 4. **Inventario y estado del inmueble** (anexo al contrato de arrendamiento).
+5. **Recibo de alquiler** (comprobante mensual de pago de arrendamiento).
 
 El objetivo es que cada documento salga completo, ordenado y con el lenguaje habitual del mercado
 uruguayo, sin que se olviden cláusulas clave.
@@ -30,6 +31,7 @@ Según lo que pida el usuario, elegí el modelo y la guía correspondientes:
 | Reservar una propiedad / dejar seña / oferta | `boleto-reserva.md` | `compraventa-uy.md` |
 | Compromiso o boleto de compraventa / venta | `compromiso-compraventa.md` | `compraventa-uy.md` |
 | Inventario / estado del inmueble alquilado | `inventario.md` | `arrendamiento-uy.md` |
+| Recibo de alquiler / comprobante de pago mensual | `recibo-alquiler.md` | `arrendamiento-uy.md` |
 
 Si no queda claro cuál necesita, preguntá antes de seguir.
 
@@ -81,7 +83,22 @@ Mostrá el documento completo y limpio. Ofrecé guardarlo como archivo (`.md` o 
 necesita para imprimir o firmar. Cerrá siempre con la advertencia de que conviene la revisión de un
 escribano/abogado.
 
+## Recibo de alquiler
+
+Para el recibo necesitás:
+
+- **Las partes:** nombre y cédula del arrendador y del arrendatario.
+- **Inmueble:** dirección, unidad (si aplica), localidad y departamento.
+- **Monto:** importe en letras y cifras (debe coincidir con el precio del contrato vigente para ese período).
+- **Período:** mes y año al que corresponde el pago (p. ej. "julio de 2026").
+- **Forma de pago:** transferencia, depósito, efectivo, etc.
+- **Observaciones:** si hubo recargos, descuentos o pagos parciales, dejarlo asentado; si no, dejar vacío.
+- **Fecha y ciudad:** del momento en que se emite el recibo.
+
+Emitir un recibo por cada mensualidad. Si el usuario tiene el contrato, los datos del inmueble y las partes
+ya están disponibles — solo pedí el mes, el monto y la forma de pago.
+
 ## Ampliar la skill
 
-Si el usuario pide otro documento que aún no está cubierto (recibos, autorización de venta, etc.), decíselo
+Si el usuario pide otro documento que aún no está cubierto (autorización de venta, etc.), decíselo
 y ofrecé agregar ese modelo a la skill más adelante.
